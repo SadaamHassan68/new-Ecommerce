@@ -17,22 +17,26 @@ const DarkMode = () => {
       element.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  }, [theme]);
+  }, [theme, element.classList]); // Including element.classList to address the warning
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
 
   return (
     <div className="relative">
       <img
         src={LightButton}
-        alt=""
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        alt="Light Mode"
+        onClick={toggleTheme}
         className={`w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300 absolute right-0 z-10 ${
           theme === "dark" ? "opacity-0" : "opacity-100"
-        } `}
+        }`}
       />
       <img
         src={DarkButton}
-        alt=""
-        onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+        alt="Dark Mode"
+        onClick={toggleTheme}
         className="w-12 cursor-pointer drop-shadow-[1px_1px_1px_rgba(0,0,0,0.1)] transition-all duration-300"
       />
     </div>
