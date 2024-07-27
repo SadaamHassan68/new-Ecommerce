@@ -1,5 +1,6 @@
 import React from "react";
-import { IoCloseOutline } from "react-icons/io5";
+import { IoCloseOutline } from "react-icons/io5"; // This is correct
+
 
 const Popup = ({ orderPopup, setOrderPopup }) => {
   return (

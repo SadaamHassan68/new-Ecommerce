@@ -46,7 +46,7 @@ const Footer = () => {
           <div className="py-8 px-4">
             <h1 className="sm:text-3xl text-xl font-bold sm:text-left text-justify mb-3 flex items-center gap-3">
               <img src={footerLogo} alt="" className="max-w-[50px]" />
-              Shopsy
+              Bahja collection
             </h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in
@@ -92,18 +92,17 @@ const Footer = () => {
             </div>
 
             {/* social links */}
-
             <div>
               <div className="flex items-center gap-3 mt-6">
-                <a href="#">
-                  <FaInstagram className="text-3xl" />
-                </a>
-                <a href="#">
-                  <FaFacebook className="text-3xl" />
-                </a>
-                <a href="#">
-                  <FaLinkedin className="text-3xl" />
-                </a>
+                <button className="text-3xl">
+                  <FaInstagram />
+                </button>
+                <button className="text-3xl">
+                  <FaFacebook />
+                </button>
+                <button className="text-3xl">
+                  <FaLinkedin />
+                </button>
               </div>
               <div className="mt-6">
                 <div className="flex items-center gap-3">
