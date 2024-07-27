@@ -9,27 +9,27 @@ const Menu = [
   {
     id: 1,
     name: "Home",
-    link: "/#",
+    link: "/", // Change to a valid link
   },
   {
     id: 2,
     name: "Top Rated",
-    link: "/#services",
+    link: "/#services", // Ensure this is a valid route
   },
   {
     id: 3,
     name: "Kids Wear",
-    link: "/#",
+    link: "/#kids", // Change to a valid link
   },
   {
     id: 4,
     name: "Mens Wear",
-    link: "/#",
+    link: "/#mens", // Change to a valid link
   },
   {
     id: 5,
     name: "Electronics",
-    link: "/#",
+    link: "/#electronics", // Change to a valid link
   },
 ];
 
@@ -37,17 +37,17 @@ const DropdownLinks = [
   {
     id: 1,
     name: "Trending Products",
-    link: "/#",
+    link: "/#trending", // Change to a valid link
   },
   {
     id: 2,
     name: "Best Selling",
-    link: "/#",
+    link: "/#best-selling", // Change to a valid link
   },
   {
     id: 3,
     name: "Top Rated",
-    link: "/#",
+    link: "/#top-rated", // Change to a valid link
   },
 ];
 
@@ -60,7 +60,7 @@ const Navbar = ({ handleOrderPopup }) => {
           <div>
             <a href="/" className="font-bold text-2xl sm:text-3xl flex gap-2">
               <img src={Logo} alt="Logo" className="w-10" />
-             Bahja
+              Bahja
             </a>
           </div>
 
