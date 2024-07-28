@@ -49,7 +49,7 @@ const Footer = () => {
               Sundus collection
             </h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum in
+              Lorem ipsum dolor sit amet consectetussr adipisicing elit. Cum in
               beatae ea recusandae blanditiis veritatis.
             </p>
           </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../../assets/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { FaCartShopping } from "react-icons/fa6";
@@ -9,27 +9,27 @@ const Menu = [
   {
     id: 1,
     name: "Home",
-    link: "/", // Change to a valid link
+    link: "/",
   },
   {
     id: 2,
     name: "Top Rated",
-    link: "/#services", // Ensure this is a valid route
+    link: "/#services",
   },
   {
     id: 3,
     name: "Kids Wear",
-    link: "/#kids", // Change to a valid link
+    link: "/#kids",
   },
   {
     id: 4,
     name: "Mens Wear",
-    link: "/#mens", // Change to a valid link
+    link: "/#mens",
   },
   {
     id: 5,
     name: "Electronics",
-    link: "/#electronics", // Change to a valid link
+    link: "/#electronics",
   },
 ];
 
@@ -37,21 +37,23 @@ const DropdownLinks = [
   {
     id: 1,
     name: "Trending Products",
-    link: "/#trending", // Change to a valid link
+    link: "/#trending",
   },
   {
     id: 2,
     name: "Best Selling",
-    link: "/#best-selling", // Change to a valid link
+    link: "/#best-selling",
   },
   {
     id: 3,
     name: "Top Rated",
-    link: "/#top-rated", // Change to a valid link
+    link: "/#top-rated",
   },
 ];
 
 const Navbar = ({ handleOrderPopup }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <div className="shadow-md bg-white dark:bg-gray-900 dark:text-white duration-200 relative z-40">
       {/* upper Navbar */}
@@ -60,13 +62,13 @@ const Navbar = ({ handleOrderPopup }) => {
           <div>
             <a href="/" className="font-bold text-2xl sm:text-3xl flex gap-2">
               <img src={Logo} alt="Logo" className="w-10" />
-          Sundus Collection
+              Sundus Collection
             </a>
           </div>
 
           {/* search bar */}
           <div className="flex justify-between items-center gap-4">
-            <div className="relative group hidden sm:block">
+            <div className="relative group search-bar hidden sm:block">
               <input
                 type="text"
                 placeholder="search"
@@ -90,12 +92,34 @@ const Navbar = ({ handleOrderPopup }) => {
             <div>
               <DarkMode />
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="block sm:hidden"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
+
       {/* lower Navbar */}
       <div data-aos="zoom-in" className="flex justify-center">
-        <ul className="sm:flex hidden items-center gap-4">
+        <ul className="sm:flex hidden items-center gap-4 menu-items">
           {Menu.map((data) => (
             <li key={data.id}>
               <a
@@ -107,7 +131,7 @@ const Navbar = ({ handleOrderPopup }) => {
             </li>
           ))}
           {/* Simple Dropdown and Links */}
-          <li className="group relative cursor-pointer">
+          <li className="group relative cursor-pointer dropdown">
             <button className="flex items-center gap-[2px] py-2">
               Trending Products
               <span>
@@ -131,6 +155,26 @@ const Navbar = ({ handleOrderPopup }) => {
           </li>
         </ul>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="mobile-menu">
+          <ul>
+            {Menu.map((data) => (
+              <li key={data.id}>
+                <a href={data.link}>{data.name}</a>
+              </li>
+            ))}
+          </ul>
+          <div className="dropdown-links">
+            {DropdownLinks.map((data) => (
+              <a key={data.id} href={data.link}>
+                {data.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
